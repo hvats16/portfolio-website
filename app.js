@@ -333,7 +333,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (downloadResumeBtn) {
         downloadResumeBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            showNotification('Resume download feature will be implemented soon!', 'info');
+            
+            // Google Drive direct download link
+            const googleDriveFileId = '1nDefHDDNiMDQB7_Cdhxq0MX2EOmic1h_';
+            const resumeUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
+            
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = resumeUrl;
+            link.download = 'Harshit_Vats_Resume.pdf'; // The name for the downloaded file
+            link.target = '_blank'; // Open in new tab for Google Drive
+            
+            // Trigger the download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showNotification('Resume download started!', 'success');
         });
     }
 
