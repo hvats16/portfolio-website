@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = targetSection.offsetTop - navbarHeight;
                 
-                // Custom smooth scroll with easing
-                smoothScrollTo(targetPosition, 1000);
+                // Custom smooth scroll with easing - faster duration
+                smoothScrollTo(targetPosition, 600);
             }
         });
     });
