@@ -6,8 +6,28 @@
     <title>Harshit Vats - Full Stack Developer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -35,6 +55,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-background"></div>
+        <div class="particles" id="particles"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -44,14 +65,49 @@
                         Experienced MERN stack developer with 2+ years of expertise in building scalable web applications. 
                         Passionate about creating efficient solutions and delivering exceptional user experiences.
                     </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="stat-value">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-value">100+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-value">70%</span>
+                            <span class="stat-label">Performance Boost</span>
+                        </div>
+                    </div>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn--primary btn--lg">View Projects</a>
-                        <a href="#contact" class="btn btn--outline btn--lg">Contact Me</a>
+                        <a href="#projects" class="btn btn--primary btn--lg">
+                            <i class="fas fa-briefcase"></i>
+                            <span>View Projects</span>
+                        </a>
+                        <a href="#contact" class="btn btn--outline btn--lg">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Me</span>
+                        </a>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="hero-avatar">
-                        <i class="fas fa-user-circle"></i>
+                        <img src="https://avatars.githubusercontent.com/u/54769009?v=4" alt="Harshit Vats" class="avatar-img">
+                        <div class="avatar-glow"></div>
+                    </div>
+                    <div class="floating-icons">
+                        <div class="float-icon" style="--delay: 0s;">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="float-icon" style="--delay: 1s;">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="float-icon" style="--delay: 2s;">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="float-icon" style="--delay: 3s;">
+                            <i class="fas fa-database"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,49 +300,54 @@
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-subtitle">Some of my recent work and personal projects</p>
             </div>
+
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">QKart</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href="#" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <h3 class="project-title">QKart</h3>
                     <p class="project-description">
-                        E-commerce application with REST APIs, responsive design, authentication, shopping carts, and checkout logic
+                        E-commerce application with REST APIs, responsive design, authentication, shopping carts, and checkout logic. Implemented secure payment gateway integration.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
-                        <span class="tech-tag">REST APIs</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">X-Flix</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href="#" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <h3 class="project-title">X-Flix</h3>
                     <p class="project-description">
-                        Video-sharing platform built with React.js, featuring external video uploads, playbook, API-driven filters
+                        Video-sharing platform built with React.js, featuring external video uploads, playbook, API-driven filters, and real-time search functionality.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">React.js</span>
-                        <span class="tech-tag">APIs</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Material-UI</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">ParkSmart System</h3>
+                    <p class="project-description">
+                        Comprehensive valet parking system with operator app, user app, and website. Increased business revenue by 30% through efficient parking management.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Socket.io</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Government RTC System</h3>
+                    <p class="project-description">
+                        Built Node.js backend to process data from lakhs of operators, handling millions of records for HRTC and APSRTC government projects.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Redis</span>
                     </div>
                 </div>
             </div>
