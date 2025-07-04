@@ -334,6 +334,9 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadResumeBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // Check if mobile device
+            const isMobile = window.innerWidth <= 768;
+            
             // Google Drive direct download link
             const googleDriveFileId = '1nDefHDDNiMDQB7_Cdhxq0MX2EOmic1h_';
             const resumeUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
@@ -344,12 +347,34 @@ document.addEventListener('DOMContentLoaded', function() {
             link.download = 'Harshit_Vats_Resume.pdf'; // The name for the downloaded file
             link.target = '_blank'; // Open in new tab for Google Drive
             
-            // Trigger the download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            showNotification('Resume download started!', 'success');
+            // Only show loading state and notifications on desktop
+            if (!isMobile) {
+                // Store original button content
+                const originalContent = this.innerHTML;
+                
+                // Show loading state on desktop only
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Opening...</span>';
+                this.disabled = true;
+                
+                // Trigger the download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Restore button state after a short delay
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                    this.disabled = false;
+                }, 1500);
+                
+                // Show notification on desktop only
+                showNotification('Resume download started!', 'success');
+            } else {
+                // Mobile: Just trigger download silently
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         });
     }
 
